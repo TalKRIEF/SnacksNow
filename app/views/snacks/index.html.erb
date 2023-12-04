@@ -1,0 +1,8 @@
+<h1>Tous nos snacks</h1>
+<ul>
+  <% @snacks.each do |snack| %>
+      <%= link_to snack_path(snack) do%>
+        <li><%= snack.name %></li>
+      <% end %>
+  <% end %>
+</ul>
