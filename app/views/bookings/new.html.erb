@@ -1,0 +1,8 @@
+<div class="container">
+<h1> New booking </h1>
+
+<%= simple_form_for [@booking] do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Submit this booking", class: "btn btn-primary" %>
+<% end %>
+</div>
