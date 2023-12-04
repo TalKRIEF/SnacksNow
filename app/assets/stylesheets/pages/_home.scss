@@ -11,7 +11,7 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2em;
+  grid-gap: 4em;
   row-gap: 3em;
   padding: 16px;
 }
@@ -26,7 +26,7 @@
 
 .img-card-index {
   object-fit: cover;
-  width: 361px;
+  width: 408px;
   height: 361px;
   border-radius: 12px;
 }
@@ -40,8 +40,15 @@
     text-decoration: none;
   }
 
+  p {
+
+    text-decoration: none;
+    color: rgb(33, 35, 148);
+  }
+
   h5
   {
+    text-decoration: none;
     color: rgb(33, 35, 148);
     font-size: 0.5vr;
     margin-top: 12px;
