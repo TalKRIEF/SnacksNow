@@ -14,13 +14,21 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def accept
-  #   if @booking.accepted!
-  #     redirect_to @booking, notice: 'Offer accepted'
+  def accept
+    if @booking.accepted!
+      redirect_to @booking, notice: 'Booking accepted'
+    else
+      redirect_to @booking, notice: 'Booking could not be accepted'
+    end
+  end
 
-  #   end
-
-  # end
+  def decline
+    if @booking.declined!
+      redirect_to @booking, notice: 'Booking declined'
+    # else
+    #   redirect_to @booking, notice: 'Booking could not be declined'
+    end
+  end
 
   # private
 
