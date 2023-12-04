@@ -1,6 +1,6 @@
 class SnacksController < ApplicationController
 skip_before_action :authenticate_user!, only: [ :index, :show ]
-before_action :set_snack, only: [:show, :edit]
+before_action :set_snack, only: [:show, :edit, :update]
 
 
 
@@ -28,6 +28,14 @@ before_action :set_snack, only: [:show, :edit]
   end
 
   def edit
+  end
+
+  def update
+    # if @snack.update(snack_params)
+    #   redirect_to snack_path(@snack)
+    # else
+
+    # end
   end
 
   private
