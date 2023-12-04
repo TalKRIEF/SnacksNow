@@ -1,12 +1,30 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgb(197, 197, 197);
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon {
+  height: 80px;
+}
+
+.navbar-title {
+  display: flex;
+  justify-content: center;
+}
+
+.login-div {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-weight: 600;
+  color: #0077ff;
+  background-color: #e0efff;
+}
+
+#login {
+  font-size: 1.25em;
 }

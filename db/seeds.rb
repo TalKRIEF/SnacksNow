@@ -17,7 +17,9 @@ diego = User.create!(username: "dddiiieegggooooooo", email:"zmsntjdn@gmail.com",
 puts "Create some snacks"
 snack1 = {name: "Sucreries de Haingo", description: "Une description est en cours de rédaction!", price: 2, user_id: diego.id}
 snack2 = {name: "Bananes de Diego", description: "Une description est en cours de rédaction!", price: 3, user_id: diego.id}
-[snack1, snack2].each do |attrs|
+snack3 = {name: "Les clopes de Nina", description: "Nina ça coûte cher en plus et il fait froid dehors...", price: 48, user_id: diego.id}
+snack4 = {name: "La pomme de Anthonny", description: "Délice de la part de l'ex charpentier", price: 6, user_id: diego.id}
+[snack1, snack2, snack3, snack4].each do |attrs|
   snack = Snack.create!(attrs)
   puts "Created #{snack.name}!"
 end

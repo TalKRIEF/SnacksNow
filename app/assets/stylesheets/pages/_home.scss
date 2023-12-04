@@ -1,1 +1,49 @@
-// Specific CSS for your home-page
+.body {
+  background-color: white;
+}
+
+.index-h1 {
+  font-size: 2vr;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2em;
+  row-gap: 3em;
+  padding: 16px;
+}
+
+.card-img {
+  // background-color: rgb(235, 234, 197);
+  // object-fit: cover;
+  // width: 100%;
+  // border-radius: 12px;
+  // height: 361px;
+}
+
+.img-card-index {
+  object-fit: cover;
+  width: 361px;
+  height: 361px;
+  border-radius: 12px;
+}
+
+.card-content {
+  // overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  h5
+  {
+    color: rgb(33, 35, 148);
+    font-size: 0.5vr;
+    margin-top: 12px;
+  }
+}

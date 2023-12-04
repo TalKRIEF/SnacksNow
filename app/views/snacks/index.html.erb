@@ -1,8 +1,18 @@
-<h1>Tous nos snacks</h1>
-<ul>
+<h1 class="index-h1">Tous nos snacks</h1>
+
+<div class="container">
   <% @snacks.each do |snack| %>
+  <div class="card-food">
+    <div class="card-img">
+      <%# <img src="https://source.unsplash.com/random/361×361/?fruit" alt=""> %>
+      <%= image_tag "breakfast.jpg", class: "img-card-index" %>
+    </div>
+
+    <div class="card-content">
       <%= link_to snack_path(snack) do%>
-        <li><%= snack.name %></li>
+        <h5><%= snack.name %></h5>
       <% end %>
+    </div>
+  </div>
   <% end %>
-</ul>
+</div>
