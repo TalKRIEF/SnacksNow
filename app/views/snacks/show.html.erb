@@ -1,3 +1,8 @@
 <h1><%= @snack.name %></h1>
 <p><%= @snack.description %></p>
 <p><%= @snack.price %>€</p>
+
+<%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
+<% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
+  <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
+<% end %>
