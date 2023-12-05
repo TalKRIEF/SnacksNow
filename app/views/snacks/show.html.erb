@@ -1,6 +1,8 @@
 <div class="show-container">
-  
+  <div class="image-div">
     <%= cl_image_tag @snack.photo.key, class: "cl-show-image" %>
+  </div>
+
   <div class="show-content">
     <div class="title-div">
       <h1><%= @snack.name %></h1>
@@ -12,6 +14,7 @@
 
     <div class="price-div">
       <p><%= @snack.price %>€</p>
+      <p>Snack created by <%= @snack.user.username %></p>
     </div>
   </div>
 </div>
