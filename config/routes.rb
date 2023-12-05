@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   patch '/bookings/:id/accept', to: "bookings#accept", as: "accept_booking"
-  patch '/bookings/:id/decline', to: "bookings#decline", as: "decline_booking"
+  delete '/bookings/:id', to: "bookings#decline", as: "decline_booking"
   # Defines the root path route ("/")
   # root "posts#index"
 end
