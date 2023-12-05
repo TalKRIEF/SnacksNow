@@ -1,6 +1,6 @@
 class SnacksController < ApplicationController
 skip_before_action :authenticate_user!, only: [ :index, :show ]
-before_action :set_snack, only: [:show, :edit, :update]
+before_action :set_snack, only: [:show, :edit, :update, :destroy]
 
 
 
@@ -31,11 +31,16 @@ before_action :set_snack, only: [:show, :edit, :update]
   end
 
   def update
-    # if @snack.update(snack_params)
-    #   redirect_to snack_path(@snack)
-    # else
+    if @snack.update(snack_params)
+      redirect_to snack_path(@snack)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
-    # end
+  def destroy
+    @snack.destroy
+    redirect_to snacks_path, status: :see_other
   end
 
   private
