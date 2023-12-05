@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :find_booking, only: [:accept, :decline]
 
   def create
     @booking = Booking.new
@@ -16,7 +17,7 @@ class BookingsController < ApplicationController
 
   def accept
     if @booking.accepted!
-      redirect_to @booking, notice: 'Booking accepted'
+      redirect_to @booking, notice: 'Booking accepted successfully'
     else
       redirect_to @booking, notice: 'Booking could not be accepted'
     end
@@ -25,12 +26,16 @@ class BookingsController < ApplicationController
   def decline
     if @booking.declined!
       redirect_to @booking, notice: 'Booking declined'
-    # else
-    #   redirect_to @booking, notice: 'Booking could not be declined'
+    else
+      redirect_to @booking, notice: 'Booking could not be declined'
     end
   end
 
-  # private
+  private
+
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
 
   # def booking_params
   #   params.require(:booking).permit(:user_id, :snack_id)

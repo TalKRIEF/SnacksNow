@@ -8,3 +8,8 @@
     <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
   <% end %>
 <% end %>
+
+<% simple_form_for @booking do |f|%>
+  <%= submit_tag "", :value => "accept", :name => "accept" %>
+  <%= submit_tag "", :value => "decline", :name => "decline"  %>
+<% end %>
