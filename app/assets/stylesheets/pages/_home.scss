@@ -12,31 +12,28 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 4em;
-  row-gap: 3em;
+  grid-gap: 8em;
+  row-gap: 4em;
   padding: 16px;
 }
 
-// .card-img {
-//   // background-color: rgb(235, 234, 197);
-//   // object-fit: cover;
-//   // width: 100%;
-//   // border-radius: 12px;
-//   // height: 361px;
-// }
-
 .img-card-index {
   object-fit: cover;
-  width: 100%;
+  width: 400px;
   height: 361px;
   border-radius: 12px;
+}
+
+.card-food {
+  background-color: rgb(245, 245, 245);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .card-content {
   display: flex;
   justify-content: center;
 
-  a {
+  .link-title-card {
     text-decoration: none;
   }
 
