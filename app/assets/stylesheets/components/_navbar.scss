@@ -14,11 +14,11 @@
   flex-grow: 0;
 }
 
-  .nav-link {
-    font-size: 25px;
-    display: flex;
-    align-items: center;
-  }
+.nav-link {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+}
 
 
 .navbar-lewagon {
@@ -29,8 +29,10 @@
   // display: flex;
   // justify-content: center;
   // align-items: center;
+  font-family: $logo-font;
   text-decoration: none;
   margin-left: 2rem;
+  color: #cb7265;
 }
 
 #login {
