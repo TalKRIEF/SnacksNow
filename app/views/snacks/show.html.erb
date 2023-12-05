@@ -1,6 +1,11 @@
 <div class="show-container">
   <div class="image-div">
-    <%= cl_image_tag @snack.photo.key, class: "cl-show-image" %>
+
+ <% if @snack.photo.attached? %>
+      <%= cl_image_tag @snack.photo.key, class: "cl-show-image" %>
+    <% else %>
+      <%= image_tag "breakfast.jpg", class: "cl-show-image" %>
+    <% end %>
   </div>
 
   <div class="show-content">
