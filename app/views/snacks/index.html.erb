@@ -1,18 +1,22 @@
-<h1 class="index-h1">Tous nos snacks</h1>
 
-<div class="container">
-  <% @snacks.each do |snack| %>
-  <div class="card-food">
-    <div class="card-img">
-      <%# <img src="https://source.unsplash.com/random/361×361/?fruit" alt=""> %>
-      <%= image_tag "breakfast.jpg", class: "img-card-index" %>
-    </div>
+  <h1 class="index-h1">Tous nos snacks</h1>
 
-    <div class="card-content">
-      <%= link_to snack_path(snack) do%>
-        <h5><%= snack.name %></h5>
-      <% end %>
+  <div class="container">
+
+        <% @snacks.each do |snack| %>
+          <div class="card-food">
+        <%= link_to snack_path(snack) do %>
+            <div class="card-img">
+              <%= image_tag "breakfast.jpg", class: "img-card-index" %>
+            </div>
+
+              <div class="card-content">
+                <%= link_to snack_path(snack), class: "link-title-card" do%>
+                  <h5><%= snack.name %></h5>
+                  <p><%= snack.description %></p>
+                <% end %>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
     </div>
-  </div>
-  <% end %>
-</div>
