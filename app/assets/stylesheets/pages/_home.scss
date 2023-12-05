@@ -27,6 +27,7 @@
 .card-food {
   background-color: rgb(245, 245, 245);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 10px;
 }
 
 .card-content {
@@ -38,13 +39,14 @@
   }
 
   p {
-
+    justify-content: center;
     text-decoration: none;
     color: rgb(33, 35, 148);
   }
 
   h5
   {
+    justify-content: center;
     text-decoration: none;
     color: rgb(33, 35, 148);
     font-size: 0.5vr;
