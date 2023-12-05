@@ -1,8 +1,9 @@
 .body {
-  background-color: white;
+  background-color: rgb(245, 245, 245);
 }
 
 .index-h1 {
+  margin: 16px 0;
   font-size: 2vr;
   display: flex;
   justify-content: center;
@@ -11,37 +12,40 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2em;
-  row-gap: 3em;
+  grid-gap: 8em;
+  row-gap: 4em;
   padding: 16px;
 }
 
-// .card-img {
-//   // background-color: rgb(235, 234, 197);
-//   // object-fit: cover;
-//   // width: 100%;
-//   // border-radius: 12px;
-//   // height: 361px;
-// }
-
 .img-card-index {
   object-fit: cover;
-  width: 361px;
+  width: 400px;
   height: 361px;
   border-radius: 12px;
 }
 
+.card-food {
+  background-color: rgb(245, 245, 245);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
 .card-content {
-  // overflow: hidden;
   display: flex;
   justify-content: center;
 
-  a {
+  .link-title-card {
     text-decoration: none;
+  }
+
+  p {
+
+    text-decoration: none;
+    color: rgb(33, 35, 148);
   }
 
   h5
   {
+    text-decoration: none;
     color: rgb(33, 35, 148);
     font-size: 0.5vr;
     margin-top: 12px;
