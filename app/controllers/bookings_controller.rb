@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [:accept, :decline]
+  before_action :set_booking, only: [:accept, :decline]
 
   def create
     @booking = Booking.new
@@ -16,15 +16,16 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    if @booking.accepted!
-      redirect_to @booking, notice: 'Booking accepted successfully'
+    @booking.booked = true
+    if @booking.save!
+      redirect_to snack_path(@booking.snack), notice: 'Booking accepted successfully'
     else
-      redirect_to @booking, notice: 'Booking could not be accepted'
+      redirect_to snack_path(@booking.snack), notice: 'Booking could not be accepted'
     end
   end
 
   def decline
-    if @booking.declined!
+    if @booking.destroy
       redirect_to @booking, notice: 'Booking declined'
     else
       redirect_to @booking, notice: 'Booking could not be declined'
@@ -33,7 +34,7 @@ class BookingsController < ApplicationController
 
   private
 
-  def find_booking
+  def set_booking
     @booking = Booking.find(params[:id])
   end
 

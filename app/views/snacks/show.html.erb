@@ -7,6 +7,17 @@
   <% if current_user == @snack.user%>
     <%= link_to "Éditer le snack", edit_snack_path(@snack) %>
     <%= link_to "Supprimer le snack", snack_path(@snack), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer #{@snack.name}?"} %>
+    <ul>
+      <% @snack.bookings.each do |booking| %>
+        <% if booking.booked == false %>
+          <li>
+              <%= booking.user.username %>
+              <%= link_to "Accepter", accept_booking_path(booking), data: {turbo_method: :patch} %>
+              <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :patch} %>
+          </li>
+        <% end %>
+     <% end %>
+    </ul>
   <%# Sinon %>
   <% else %>
     <%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
@@ -14,9 +25,4 @@
       <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
     <% end %>
   <% end %>
-<% end %>
-
-<% simple_form_for @booking do |f|%>
-  <%= submit_tag "", :value => "accept", :name => "accept" %>
-  <%= submit_tag "", :value => "decline", :name => "decline"  %>
 <% end %>
