@@ -1,5 +1,5 @@
 .body {
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(230, 230, 230);
 }
 
 .index-h1 {
@@ -18,6 +18,16 @@
 }
 
 .img-card-index {
+  object-fit: cover;
+  width: 400px;
+  height: 361px;
+  border-radius: 12px;
+  img{
+    border-radius: 12px;
+  }
+}
+
+.cl-image {
   object-fit: cover;
   width: 400px;
   height: 361px;

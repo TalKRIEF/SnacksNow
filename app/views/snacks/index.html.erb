@@ -8,7 +8,7 @@
         <%= link_to snack_path(snack) do %>
         <% if snack.photo.attached? %>
             <div class="card-img">
-              <%= cl_image_tag snack.photo.key, height: 300, width: 400, crop: :fill %>
+              <%= cl_image_tag snack.photo.key, class: "cl-image" %>
             </div>
             <% else %>
             <div class="card-img">
