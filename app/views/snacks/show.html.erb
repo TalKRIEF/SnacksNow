@@ -1,9 +1,18 @@
 <div class="show-container">
+  
     <%= cl_image_tag @snack.photo.key, class: "cl-show-image" %>
   <div class="show-content">
-    <h1><%= @snack.name %></h1>
-    <p><%= @snack.description %></p>
-    <p><%= @snack.price %>€</p>
+    <div class="title-div">
+      <h1><%= @snack.name %></h1>
+    </div>
+
+    <div class="description-div">
+      <p><%= @snack.description %></p>
+    </div>
+
+    <div class="price-div">
+      <p><%= @snack.price %>€</p>
+    </div>
   </div>
 </div>
 

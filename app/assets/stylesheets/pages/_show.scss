@@ -1,4 +1,5 @@
 .show-container {
+  border: 2px solid green;
   overflow: hidden;
   background: rgb(240, 240, 240);
   height: 100%;
@@ -7,6 +8,14 @@
   border-radius: 10px;
   align-items: center;
   margin-top: 40px;
+}
+
+.show-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 2px solid red;
 }
 
 .cl-show-image {
@@ -30,4 +39,18 @@
     color: rgb(7, 6, 6);
     text-decoration: none;
   }
+}
+
+.title-div {
+  // margin-bottom: 100px;
+}
+
+.description-div {
+
+  // margin-top: 50px;
+}
+
+.price-div {
+
+  // margin-top: 50px;
 }
