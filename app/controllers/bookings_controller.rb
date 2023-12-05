@@ -26,9 +26,9 @@ class BookingsController < ApplicationController
 
   def decline
     if @booking.destroy
-      redirect_to @booking, notice: 'Booking declined'
+      redirect_to snack_path(@booking.snack), notice: 'Booking declined'
     else
-      redirect_to @booking, notice: 'Booking could not be declined'
+      redirect_to snack_path(@booking.snack), notice: 'Booking could not be declined'
     end
   end
 

@@ -13,7 +13,7 @@
           <li>
               <%= booking.user.username %>
               <%= link_to "Accepter", accept_booking_path(booking), data: {turbo_method: :patch} %>
-              <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :patch} %>
+              <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"} %>
           </li>
         <% end %>
      <% end %>
