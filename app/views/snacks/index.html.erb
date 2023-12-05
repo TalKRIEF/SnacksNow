@@ -6,14 +6,22 @@
         <% @snacks.each do |snack| %>
           <div class="card-food">
         <%= link_to snack_path(snack) do %>
+        <% if snack.photo.attached? %>
+            <div class="card-img">
+              <%= cl_image_tag snack.photo.key, height: 300, width: 400, crop: :fill %>
+            </div>
+            <% else %>
             <div class="card-img">
               <%= image_tag "breakfast.jpg", class: "img-card-index" %>
             </div>
+            <% end %>
 
               <div class="card-content">
                 <%= link_to snack_path(snack), class: "link-title-card" do%>
                   <h5><%= snack.name %></h5>
-                  <p><%= snack.description %></p>
+                    <div class="card-content-description">
+                      <p><%= snack.description %></p>
+                    </div>
                 <% end %>
             </div>
           </div>
