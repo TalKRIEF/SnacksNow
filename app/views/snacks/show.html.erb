@@ -2,10 +2,17 @@
 <p><%= @snack.description %></p>
 <p><%= @snack.price %>€</p>
 
-<%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
-<% if current_user %>
-  <% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
-    <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
+<% if user_signed_in? %>
+  <%# Si le user est le owner de l'annonce %>
+  <% if current_user == @snack.user%>
+    <%= link_to "Éditer le snack", edit_snack_path(@snack) %>
+    <%= link_to "Supprimer le snack", snack_path(@snack), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer #{@snack.name}?"} %>
+  <%# Sinon %>
+  <% else %>
+    <%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
+    <% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
+      <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
+    <% end %>
   <% end %>
 <% end %>
 
