@@ -1,5 +1,43 @@
 .show-container {
   overflow: hidden;
   background: rgb(240, 240, 240);
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  border-radius: 10px;
+  margin-top: 40px;
+}
 
+.image-div {
+  height: 100%;
+  .cl-show-image {
+    margin: 2em;
+    border-radius: 6px;
+    width: 300px;
+  }
+}
+
+.show-content {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+
+.container-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+
+  .edit-snack {
+    flex-grow: 1;
+  }
+
+  a {
+    font-size: 34px;
+    color: rgb(7, 6, 6);
+    text-decoration: none;
+  }
 }

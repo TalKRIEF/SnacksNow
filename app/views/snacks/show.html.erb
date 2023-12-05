@@ -1,25 +1,44 @@
 <div class="show-container">
-    <%= image_tag "Monamidiego.jpeg" %>
+  <div class="image-div">
+
+ <% if @snack.photo.attached? %>
+      <%= cl_image_tag @snack.photo.key, class: "cl-show-image" %>
+    <% else %>
+      <%= image_tag "breakfast.jpg", class: "cl-show-image" %>
+    <% end %>
+  </div>
+
   <div class="show-content">
-    <h1><%= @snack.name %></h1>
-    <p><%= @snack.description %></p>
-    <p><%= @snack.price %>€</p>
+    <div class="title-div">
+      <h1><%= @snack.name %></h1>
+    </div>
+
+    <div class="description-div">
+      <p><%= @snack.description %></p>
+    </div>
+
+    <div class="price-div">
+      <p><%= @snack.price %>€</p>
+      <p>Snack created by <%= @snack.user.username %></p>
+    </div>
   </div>
 </div>
+
+<div class="container-actions">
 
     <% if user_signed_in? %>
       <%# Si le user est le owner de l'annonce %>
       <% if current_user == @snack.user%>
-        <%= link_to "Éditer le snack", edit_snack_path(@snack) %>
-        <%= link_to "Supprimer le snack", snack_path(@snack), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer #{@snack.name}?"} %>
+            <%= link_to "Éditer le snack", edit_snack_path(@snack), class: "edit-snack" %>
+            <%= link_to "Supprimer le snack", snack_path(@snack), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer #{@snack.name}?"} %>
         <ul>
-<%= cl_image_tag @snack.photo.key, height: 300, width: 400, crop: :fill %>
           <% @snack.bookings.each do |booking| %>
             <% if booking.booked == false %>
               <li>
-                  <%= booking.user.username %>
-                  <%= link_to "Accepter", accept_booking_path(booking), data: {turbo_method: :patch} %>
-                  <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"} %>
+                    <%= booking.user.username %>
+                    <%= link_to "Accepter", accept_booking_path(booking), data: {turbo_method: :patch} %>
+
+                    <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"} %>
               </li>
             <% end %>
         <% end %>
@@ -32,3 +51,4 @@
         <% end %>
       <% end %>
     <% end %>
+</div>
