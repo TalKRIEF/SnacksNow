@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to snacks_path, class: "navbar-brand" do %>
         <h1 class="navbar-title"> Snack's Now</h1>
     <% end %>
 
@@ -29,7 +29,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <div class="login-div">
+            <div class="button-lightblue">
               <%= link_to "Login", new_user_session_path, class: "nav-link", id: "login" %>
             </div>
           </li>
