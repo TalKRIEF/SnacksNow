@@ -13,7 +13,9 @@
               <div class="card-content">
                 <%= link_to snack_path(snack), class: "link-title-card" do%>
                   <h5><%= snack.name %></h5>
-                  <p><%= snack.description %></p>
+                    <div class="card-content-description">
+                      <p><%= snack.description %></p>
+                    </div>
                 <% end %>
             </div>
           </div>
