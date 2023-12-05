@@ -13,6 +13,7 @@
         <%= link_to "Éditer le snack", edit_snack_path(@snack) %>
         <%= link_to "Supprimer le snack", snack_path(@snack), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer #{@snack.name}?"} %>
         <ul>
+<%= cl_image_tag @snack.photo.key, height: 300, width: 400, crop: :fill %>
           <% @snack.bookings.each do |booking| %>
             <% if booking.booked == false %>
               <li>
