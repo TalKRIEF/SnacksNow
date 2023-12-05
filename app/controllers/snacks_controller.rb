@@ -50,6 +50,6 @@ before_action :set_snack, only: [:show, :edit, :update, :destroy]
   end
 
   def snack_params
-    params.require(:snack).permit(:name, :description, :price)
+    params.require(:snack).permit(:name, :description, :price, :photo)
   end
 end
