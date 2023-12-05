@@ -1,28 +1,27 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgb(197, 197, 197);
+  // background: rgb(155,159,255);
+  // background: linear-gradient(180deg, rgba(155,159,255,1) 0%, rgba(197,234,242,1) 100%);
+  // background: rgb(231,144,144);
+  // background: linear-gradient(180deg, rgba(231,144,144,1) 0%, rgba(242,238,197,1) 100%);
+  // background: rgb(255,150,143);
+  // background: linear-gradient(180deg, rgba(255,150,143,1) 5%, rgba(197,202,242,1) 81%);
 }
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
 .navbar-lewagon {
-  height: 80px;
+  height: 70px;
 }
 
 .navbar-title {
-  display: flex;
-  justify-content: center;
-}
-
-.login-div {
-  border: none;
-  padding: 6px 12px;
-  border-radius: 50px;
-  font-weight: 600;
-  color: #0077ff;
-  background-color: #e0efff;
+//   display: flex;
+//   justify-content: center;
+text-decoration: none;
+margin-left: 2rem;
 }
 
 #login {

@@ -1,8 +1,9 @@
 .body {
-  background-color: white;
+  background-color: rgb(245, 245, 245);
 }
 
 .index-h1 {
+  margin: 16px 0;
   font-size: 2vr;
   display: flex;
   justify-content: center;
@@ -11,7 +12,7 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2em;
+  grid-gap: 4em;
   row-gap: 3em;
   padding: 16px;
 }
@@ -26,13 +27,12 @@
 
 .img-card-index {
   object-fit: cover;
-  width: 361px;
+  width: 100%;
   height: 361px;
   border-radius: 12px;
 }
 
 .card-content {
-  // overflow: hidden;
   display: flex;
   justify-content: center;
 
@@ -40,8 +40,15 @@
     text-decoration: none;
   }
 
+  p {
+
+    text-decoration: none;
+    color: rgb(33, 35, 148);
+  }
+
   h5
   {
+    text-decoration: none;
     color: rgb(33, 35, 148);
     font-size: 0.5vr;
     margin-top: 12px;
