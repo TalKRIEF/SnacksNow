@@ -20,8 +20,8 @@
 
 .img-card-index {
   object-fit: cover;
-  width: 400px;
-  height: 361px;
+  width: 350px;
+  height: 300px;
   border-radius: 12px;
   img{
     border-radius: 12px;
@@ -30,8 +30,9 @@
 
 .cl-image {
   object-fit: cover;
-  width: 400px;
-  height: 361px;
+  width: 350px;
+  height: 300px;
+
   border-radius: 12px;
 }
 
@@ -39,12 +40,15 @@
   background-color: rgb(245, 245, 245);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 10px;
+  width: 100%;
 }
 
 .card-content {
 
   display: flex;
   justify-content: center;
+  width: 350px;
+  height: auto;
 
   .link-title-card {
     text-decoration: none;
@@ -63,5 +67,32 @@
     color: rgb(33, 35, 148);
     font-size: 0.5vr;
     margin-top: 12px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  /* For a screen < 960px, this CSS will be read */
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  /* For a screen < 720px, this CSS will be read */
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+  .container {
+    grid-template-columns: 1fr;
   }
 }
