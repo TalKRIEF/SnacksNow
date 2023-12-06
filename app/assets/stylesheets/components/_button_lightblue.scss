@@ -1,3 +1,5 @@
+$hover-color: rgb(179, 84, 84);
+
 .button-lightblue {
   border: none;
   padding: 2px 20px;
@@ -14,4 +16,9 @@
   font-weight: 600;
   background-color: #ecbda9;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  &:hover {
+    background-color: $hover-color;
+    transition: 0.3s ease-in-out;
+  }
 }
