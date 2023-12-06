@@ -3,6 +3,7 @@
 }
 
 .index-h1 {
+  object-fit: cover;
   margin: 16px 0;
   font-size: 2vr;
   display: flex;
@@ -37,10 +38,15 @@
 }
 
 .card-food {
+  transition: transform 100ms ease-in-out;
   background-color: rgb(245, 245, 245);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 10px;
   width: 100%;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .card-content {

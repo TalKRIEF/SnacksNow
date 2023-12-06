@@ -1,3 +1,8 @@
+.page-wrapper {
+  margin: auto;
+  width: 150vh;
+}
+
 .show-container {
   overflow: hidden;
   background: rgb(240, 240, 240);
@@ -24,15 +29,36 @@
   justify-content: space-around;
 }
 
-
-
 .container-actions {
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
-  padding: 12px 24px;
+  padding: 12px 20px;
+  flex-grow: 1;
 
   .edit-snack {
-    flex-grow: 1;
+    transition: transform 100ms ease-in-out;
+    // border: 1px solid rgb(207, 207, 207);
+    // border-radius: 75px;
+    // padding: 16px
+    // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  .edit-snack:hover {
+    transform: scale(1.1);
+    color: rgb(61, 174, 97);
+  }
+  .delete-snack {
+    transition: transform 100ms ease-in-out;
+    // border: 1px solid rgb(207, 207, 207);
+    // border-radius: 75px;
+    // padding: 16px;
+    // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  .delete-snack:hover {
+    transform: scale(1.1);
+    color: rgb(165, 32, 48);
   }
 
   a {
@@ -41,3 +67,71 @@
     text-decoration: none;
   }
 }
+
+.booking-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pending-booking {
+  margin-top: 20px;
+  border-radius: 10px;
+
+  ul {
+    list-style: none;
+  }
+
+  .booking-show {
+    text-decoration: none;
+    transition: transform 100ms ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.accepted-booking {
+  margin-top: 20px;
+  justify-content: flex-end;
+  ul {
+    list-style: none;
+  }
+}
+
+
+
+.title-show {
+  font-size: 26px;
+  font-weight: 400;
+  margin: 12px 26px;
+
+}
+
+.booking-card-show {
+  background-color: rgb(246, 246, 246);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 24px;
+
+  .booking-show, .booking-show-refuse{
+    text-decoration: none;
+
+  }
+
+  .booking-show-refuse {
+    color: rgb(233, 122, 71)
+  }
+}
+
+.booking-show-refuse {
+  transition: transform 100ms ease-in-out;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+.booking-username {
+  font-size: 16px;
+  font-weight: bold;
+  }
