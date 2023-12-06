@@ -30,9 +30,11 @@
     <% if user_signed_in? %>
       <%# Si le user est le owner de l'annonce %>
     <% if current_user == @snack.user%>
+     <div class="link-snacks">
         <%= link_to "Éditer le snack", edit_snack_path(@snack), class: "edit-snack" %>
         <%= link_to "Supprimer le snack", snack_path(@snack), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer #{@snack.name}?"}, class: "delete-snack" %>
-  </div>
+     </div>
+
 
 
         <div class="booking-container">
@@ -71,8 +73,17 @@
     <% else %>
       <%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
       <% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
-        <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
+        <div data-controller="toggle-booking">
+          <div data-action="click->toggle-booking#fire">
+            <%= link_to "Réservez un snack" %>
+          </div>
+          <%# <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
+          <div data-toggle-booking-target="togglableElement" class="d-none">
+            <%= render "form_booking", snack: @snack, booking: @booking %>
+          </div>
+        </div>
       <% end %>
     <% end %>
   <% end %>
+   </div>
 </div>
