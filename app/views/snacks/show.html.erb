@@ -1,54 +1,78 @@
-<div class="show-container">
-  <div class="image-div">
+<div class="page-wrapper">
 
- <% if @snack.photo.attached? %>
-      <%= cl_image_tag @snack.photo.key, class: "cl-show-image" %>
-    <% else %>
-      <%= image_tag "breakfast.jpg", class: "cl-show-image" %>
-    <% end %>
+  <div class="show-container">
+    <div class="image-div">
+
+  <% if @snack.photo.attached? %>
+        <%= cl_image_tag @snack.photo.key, class: "cl-show-image" %>
+      <% else %>
+        <%= image_tag "breakfast.jpg", class: "cl-show-image" %>
+      <% end %>
+    </div>
+
+    <div class="show-content">
+      <div class="title-div">
+        <h1><%= @snack.name %></h1>
+      </div>
+
+      <div class="description-div">
+        <p><%= @snack.description %></p>
+      </div>
+
+      <div class="price-div">
+        <p><%= @snack.price %>€</p>
+        <p>Snack created by <%= @snack.user.username %></p>
+      </div>
+    </div>
   </div>
 
-  <div class="show-content">
-    <div class="title-div">
-      <h1><%= @snack.name %></h1>
-    </div>
-
-    <div class="description-div">
-      <p><%= @snack.description %></p>
-    </div>
-
-    <div class="price-div">
-      <p><%= @snack.price %>€</p>
-      <p>Snack created by <%= @snack.user.username %></p>
-    </div>
-  </div>
-</div>
-
-<div class="container-actions">
-
+  <div class="container-actions">
     <% if user_signed_in? %>
       <%# Si le user est le owner de l'annonce %>
-      <% if current_user == @snack.user%>
-            <%= link_to "Éditer le snack", edit_snack_path(@snack), class: "edit-snack" %>
-            <%= link_to "Supprimer le snack", snack_path(@snack), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer #{@snack.name}?"} %>
-        <ul>
-          <% @snack.bookings.each do |booking| %>
-            <% if booking.booked == false %>
-              <li>
-                    <%= booking.user.username %>
-                    <%= link_to "Accepter", accept_booking_path(booking), data: {turbo_method: :patch} %>
+    <% if current_user == @snack.user%>
+        <%= link_to "Éditer le snack", edit_snack_path(@snack), class: "edit-snack" %>
+        <%= link_to "Supprimer le snack", snack_path(@snack), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer #{@snack.name}?"}, class: "delete-snack" %>
+  </div>
 
-                    <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"} %>
-              </li>
+
+        <div class="booking-container">
+          <div class="pending-booking">
+          <u><h5 class="title-show">Réservation(s) en attente  <i class="fa-solid fa-clock-rotate-left"></i></h5></u>
+            <ul>
+              <% @snack.bookings.each do |booking| %>
+                <% if booking.booked == false %>
+                  <div class="booking-card-show">
+                    <li>
+                          <p class="booking-demand"><span class="booking-username"><%= booking.user.username %></span> vous a envoyé une demande de réservation</p>
+                          <p><i class="fa-solid fa-check"></i> <%= link_to "Accepter", accept_booking_path(booking), data: {turbo_method: :patch}, class: "booking-show" %></p>
+                          <p><i class="fa-solid fa-xmark"></i> <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir refuser?"}, class: "booking-show-refuse" %></p>
+                    </li>
+                  </div>
+                <% end %>
             <% end %>
-        <% end %>
-        </ul>
-      <%# Sinon %>
-      <% else %>
-        <%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
-        <% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
-          <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
-        <% end %>
+            </ul>
+          </div>
+
+          <div class="accepted-booking">
+         <u><h5 class="title-show">Réservations acceptées  <i class="fa-solid fa-check"></i></h5></u>
+            <ul>
+              <% @snack.bookings.each do |booking| %>
+                <% if booking.booked%>
+                  <li>
+                        <%= booking.user.username %>
+                  </li>
+                <% end %>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+
+    <%# Sinon %>
+    <% else %>
+      <%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
+      <% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
+        <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
       <% end %>
     <% end %>
+  <% end %>
 </div>
