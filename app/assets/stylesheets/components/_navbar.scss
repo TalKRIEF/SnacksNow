@@ -1,3 +1,5 @@
+$hover-color: rgb(179, 84, 84);
+
 .navbar-lewagon {
   justify-content: space-between;
   background: rgb(231,144,144);
@@ -18,11 +20,18 @@
   font-size: 22px;
   display: flex;
   align-items: center;
+  transition: transform 300ms ease-in-out;
+
+  &:hover{
+    transform: scale(1.1);
+  }
 }
+
 
 
 .navbar-lewagon {
   height: 85px;
+  width: auto;
 }
 
 .navbar-title {
@@ -33,6 +42,11 @@
   text-decoration: none;
   margin-left: 2rem;
   color: #cb7265;
+
+  &:hover {
+    color: $hover-color;
+    transition: 0.3s ease-in-out;
+  }
 }
 
 #login {
