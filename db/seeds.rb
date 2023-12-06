@@ -62,12 +62,12 @@ puts "done!"
 
 puts "Create some bookings:"
 puts "diego => La pomme d'Anthonny"
-Booking.create(user_id: diego.id, snack_id: snack2.id, booked: false)
+Booking.create(user_id: diego.id, snack_id: snack2.id, booked: false, date: Date.today)
 puts "done!"
 puts "nina => La pomme d'Anthonny"
-Booking.create(user_id: nina.id, snack_id: snack2.id, booked: false)
+Booking.create(user_id: nina.id, snack_id: snack2.id, booked: false, date: Date.today)
 puts "done!"
 puts "diego => Le croissant de Marina"
-Booking.create(user_id: diego.id, snack_id: snack4.id, booked: false)
+Booking.create(user_id: diego.id, snack_id: snack4.id, booked: false, date: Date.today)
 
 puts "Finished"
