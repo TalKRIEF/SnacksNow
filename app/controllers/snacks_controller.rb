@@ -9,6 +9,7 @@ before_action :set_snack, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
