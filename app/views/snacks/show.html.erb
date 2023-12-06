@@ -30,9 +30,11 @@
     <% if user_signed_in? %>
       <%# Si le user est le owner de l'annonce %>
     <% if current_user == @snack.user%>
+     <div class="link-snacks">
         <%= link_to "Éditer le snack", edit_snack_path(@snack), class: "edit-snack" %>
         <%= link_to "Supprimer le snack", snack_path(@snack), data: { turbo_method: :delete, turbo_confirm: "Voulez-vous vraiment supprimer #{@snack.name}?"}, class: "delete-snack" %>
-  </div>
+     </div>
+
 
 
         <div class="booking-container">
@@ -83,4 +85,5 @@
       <% end %>
     <% end %>
   <% end %>
+   </div>
 </div>
