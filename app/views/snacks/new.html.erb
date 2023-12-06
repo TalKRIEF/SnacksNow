@@ -1,8 +1,14 @@
-<h1>Ajouter un snack</h1>
-<%= simple_form_for @snack  do |f|%>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="row">
+            <h1 class= "hh">Ajouter un snack</h1>
+            <div class="descrip">
+            <%= simple_form_for @snack  do |f|%>
+              <%= f.input :name %>
+              <%= f.input :description %>
+              <%= f.input :price %>
+              <%= f.input :photo, as: :file %>
+              <%= f.button :submit, value: "Ajouter", class:"create" %>
+            <% end %>
+            </div>
+    </div>
+</div>
