@@ -72,7 +72,13 @@
       <%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
       <% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
         <div data-controller="toggle-booking">
-          <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
+          <div data-action="click->toggle-booking#fire">
+            <%= link_to "Réservez un snack" %>
+          </div>
+          <%# <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
+          <div data-toggle-booking-target="togglableElement" class="d-none">
+            <%= render "form_booking", snack: @snack, booking: @booking %>
+          </div>
         </div>
       <% end %>
     <% end %>

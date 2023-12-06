@@ -2,16 +2,16 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:accept, :decline]
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @snack = Snack.find(params[:snack_id])
     @booking.snack = @snack
     @booking.user = current_user
     @booking.booked = false
 
     if @booking.save
-      redirect_to snack_path(@snack)
+      redirect_to snack_path(@snack), notice: 'La réservation a bien été enregistrée!'
     else
-      render :snack_path
+      redirect_to snack_path(@snack), notice: 'La réservation n\'a pas été enregistrée!'
     end
   end
 
@@ -38,7 +38,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  # def booking_params
-  #   params.require(:booking).permit(:user_id, :snack_id)
-  # end
+  def booking_params
+    params.require(:booking).permit(:date)
+  end
 end
