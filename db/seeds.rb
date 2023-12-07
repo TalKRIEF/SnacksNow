@@ -26,7 +26,7 @@ nina = User.create!(username: "nina", email:"nina@gmail.com", password: "azerty"
 puts "Create some snacks:"
 
 puts "Sucreries de Haingo"
-snack1 = Snack.new(name: "Sucreries de Haingo", description: "Une bonne dose de sucre pour éviter l'hypoglycémie! Proposée avec un grand sourire! C'est presque gratuit!", address: "21 Rue Haxo", price: 2.99, user_id: diego.id)
+snack1 = Snack.new(name: "Sucreries de Haingo", description: "Une bonne dose de sucre pour éviter l'hypoglycémie! Proposée avec un grand sourire! C'est presque gratuit!", address: "21 Rue Haxo, Marseille", price: 2.99, user_id: diego.id)
 snack1_photo = URI.open("https://www.generation-souvenirs.com/27476-product_large/chamallows-haribo.jpg")
 snack1.photo.attach(io: snack1_photo, filename: "bonbons.jpg", content_type: "image/jpg")
 snack1.save!
