@@ -1,0 +1,15 @@
+.mapboxgl-popup-close-button {
+  font-size: 25px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.mapboxgl-popup-content {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  padding: 15px 20px 8px;
+  pointer-events: auto;
+  position: relative;
+}

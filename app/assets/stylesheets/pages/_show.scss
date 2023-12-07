@@ -1,6 +1,6 @@
 .page-wrapper {
   margin: auto;
-  width: 150vh;
+  width: 80vw;
 }
 
 .show-container {
@@ -23,6 +23,7 @@
 }
 
 .show-content {
+  width: 80%;
   height: auto;
   display: flex;
   flex-direction: column;
