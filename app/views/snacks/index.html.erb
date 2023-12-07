@@ -1,60 +1,53 @@
+<h1 class="index-h1">Snacks of the day</h1>
+  <div class="row justify-content-center">
+      <div class="col-sm-8 my-3">
+        <%= form_with url: snacks_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Mots-clés"
+            %>
+          <%= submit_tag "Miam", name: "", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+  </div>
 
-  <h1 class="index-h1">Snacks of the day</h1>
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="snacks">
+        <% if @snacks.any? %>
+          <% @snacks.each do |snack| %>
+          <% end %>
+        <% else %>
+          <em>Nous sommes désolés, aucun snack trouvé.</em>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
   <div class="container">
-
-        <% @snacks.each do |snack| %>
-          <div class="card-food">
+    <% @snacks.each do |snack| %>
+      <div class="card-food">
         <%= link_to snack_path(snack) do %>
         <% if snack.photo.attached? %>
-            <div class="card-img">
-              <%= cl_image_tag snack.photo.key, class: "cl-image" %>
-            </div>
-            <% else %>
-            <div class="card-img">
-              <%= image_tag "breakfast.jpg", class: "img-card-index" %>
-            </div>
-            <% end %>
-
-              <div class="card-content">
-                <%= link_to snack_path(snack), class: "link-title-card" do%>
-                  <h5><%= snack.name %></h5>
-                    <div class="card-content-description">
-                      <p><%= snack.description %></p>
-                    </div>
-                <% end %>
-            </div>
+          <div class="card-img">
+            <%= cl_image_tag snack.photo.key, class: "cl-image" %>
           </div>
-          <% end %>
+        <% else %>
+          <div class="card-img">
+            <%= image_tag "breakfast.jpg", class: "img-card-index" %>
+          </div>
         <% end %>
-    </div>
 
-  <div class="container">
-    <div class="row justify-content-center">
-    <div class="col-sm-8 my-3">
-      <%= form_with url: snacks_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Type a keyword"
-          %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-
-
-  </div>
-      <div class="row justify-content-center">
-        <div class="col-sm-8">
-          <div id="snacks">
-            <% if @snacks.any? %>
-              <% @snacks.each do |snack| %>
-                <h4><%= snack.name %></h4>
+            <div class="card-content">
+              <%= link_to snack_path(snack), class: "link-title-card" do%>
+                <h5><%= snack.name %></h5>
+                  <div class="card-content-description">
+                    <p><%= snack.description %></p>
+                  </div>
               <% end %>
-            <% else %>
-              <em>Nous sommes désolés, aucun snack trouvé.</em>
-            <% end %>
           </div>
-        </div>>
-      </div>
+        </div>
+        <% end %>
+      <% end %>
   </div>

@@ -8,11 +8,11 @@ before_action :set_snack, only: [:show, :edit, :update, :destroy]
     @snacks = Snack.all
     if params[:query].present?
       sql_subquery = <<~SQL
-      snacks.name ILIKE :query
-      OR snacks.description ILIKE :query
-      OR users.username ILIKE :query
-    SQL
-    @snacks = @snacks.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")")
+      snacks.name @@ :query
+      OR snacks.description @@ :query
+      OR users.username @@ :query
+      SQL
+    @snacks = @snacks.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
     end
   end
 
