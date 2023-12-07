@@ -5,6 +5,7 @@
             <%= simple_form_for @snack  do |f|%>
               <%= f.input :name %>
               <%= f.input :description %>
+              <%= f.input :address %>
               <%= f.input :price %>
               <%= f.input :photo, as: :file %>
               <%= f.button :submit, value: "Ajouter", class:"create" %>

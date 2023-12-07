@@ -10,6 +10,12 @@ before_action :set_snack, only: [:show, :edit, :update, :destroy]
 
   def show
     @booking = Booking.new
+    @markers = @snack.geocoded.map do |snack|
+      {
+        lat: snack.latitude,
+        lng: snack.longitude
+      }
+    end
   end
 
   def new
