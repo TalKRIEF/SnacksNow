@@ -1,15 +1,48 @@
 .mapboxgl-popup-close-button {
-  font-size: 25px;
+  font-size: 16px;
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 2px;
+  top: 2px;
+  border: none;
+  border-radius: 0;
 }
 
 .mapboxgl-popup-content {
   background: #fff;
   border-radius: 14px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.1);
   padding: 15px 20px 8px;
   pointer-events: auto;
   position: relative;
+}
+
+a.mapboxgl-ctrl-logo {
+  display: none;
+}
+
+.mapboxgl-ctrl-icon {
+  display: none ;
+}
+
+.infobulle-name {
+  background-color: #faeaea;
+  border-radius: 16px;
+  color: rgb(220, 111, 111);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.twix-icon {
+  height: 70px;
+  width: 70px;
+  margin: auto;
+  display: block;
+  transition: transform 100ms ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.mapboxgl-canvas {
+  padding: 16px;
+  border-radius: 20px;
 }
