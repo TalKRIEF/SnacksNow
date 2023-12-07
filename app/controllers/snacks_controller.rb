@@ -5,7 +5,15 @@ before_action :set_snack, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    @snacks = Snack.all;
+    @snacks = Snack.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+      snacks.name @@ :query
+      OR snacks.description @@ :query
+      OR users.username @@ :query
+      SQL
+    @snacks = @snacks.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
