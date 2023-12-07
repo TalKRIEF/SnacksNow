@@ -99,9 +99,11 @@
   <% end %>
    </div>
     <ul>
-  <% @snack.reviews.each do |review| %>
-        <p><%= review.rating %>/5</p>
-        <p><%= review.user.username %> : <%= review.content %></p>
-  <% end %>
+      <% @snack.reviews.each do |review| %>
+        <div class="review-div">
+          <p><%= review.rating %>/5</p>
+          <p><strong><%= review.user.username %></strong>: <%= review.content %></p>
+        </div>
+      <% end %>
     </ul>
 </div>
