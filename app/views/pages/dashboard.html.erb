@@ -1,0 +1,52 @@
+<div class="dashb-wrapper">
+
+  <h1>Dashboard</h1>
+  <p>Hey <strong><%= current_user.username %></strong>, envie d'un snack🍫?</p>
+  <h5 class="dashb-title-snacks">Tes snacks</h5>
+  <div class="dashb-snacks">
+      <% current_user.snacks.each do |snack| %>
+        <%= link_to snack_path(snack) do %>
+          <div class="dashb-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path snack.photo.key%>)">
+          <%= snack.name %>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+  <div class="dashb-bookings" data-controller="dashb-switch">
+
+    <h5 class="dashb-title">Tes réservations </h5>
+    <div class="switch-div">
+      <span> En attente </span>
+      <label class="switch">
+        <input type="checkbox" data-action="click->dashb-switch#fire">
+        <span class="slider round"></span>
+      </label>
+      <span> Acceptées </span>
+
+    </div>
+    <div class="dashb-pending" data-dashb-switch-target="pendingBookings">
+        <% current_user.bookings.each do |booking| %>
+          <% if booking.booked == false %>
+              <%= link_to snack_path(booking.snack) do %>
+                <div class="dashb-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path booking.snack.photo.key%>)">
+                  <%= booking.snack.name %>
+                </div>
+              <% end %>
+          <% end %>
+        <% end %>
+    </div>
+
+    <div class="dashb-accepted d-none" data-dashb-switch-target="acceptedBookings">
+        <% current_user.bookings.each do |booking| %>
+          <% if booking.booked%>
+              <%= link_to snack_path(booking.snack) do %>
+                <div class="dashb-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path booking.snack.photo.key%>)">
+                  <%= booking.snack.name %>
+                </div>
+              <% end %>
+          <% end %>
+        <% end %>
+    </div>
+
+  </div>
+</div>
