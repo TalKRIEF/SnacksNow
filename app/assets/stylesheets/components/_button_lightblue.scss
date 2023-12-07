@@ -22,3 +22,17 @@ $hover-color: rgb(179, 84, 84);
     transition: 0.3s ease-in-out;
   }
 }
+
+.button-searchbar {
+  background-color: rgb(190, 113, 113);
+  color: rgb(243, 241, 236);
+   border:none;
+    border-radius:0 10px 10px 0;
+    padding:5px;
+    min-height:30px;
+    min-width: 120px
+}
+
+.button-searchbar:hover {
+  background-color: rgb(179, 84, 84);
+}
