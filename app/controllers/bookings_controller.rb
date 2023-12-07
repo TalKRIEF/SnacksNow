@@ -18,17 +18,17 @@ class BookingsController < ApplicationController
   def accept
     @booking.booked = true
     if @booking.save!
-      redirect_to snack_path(@booking.snack), notice: 'Booking accepted successfully'
+      redirect_to snack_path(@booking.snack), notice: 'La réservation a été acceptée!'
     else
-      redirect_to snack_path(@booking.snack), notice: 'Booking could not be accepted'
+      redirect_to snack_path(@booking.snack), notice: 'La réservation n\'a pas pu être acceptée!'
     end
   end
 
   def decline
     if @booking.destroy
-      redirect_to snack_path(@booking.snack), notice: 'Booking declined'
+      redirect_to snack_path(@booking.snack), notice: 'La réservation a été refusée!'
     else
-      redirect_to snack_path(@booking.snack), notice: 'Booking could not be declined'
+      redirect_to snack_path(@booking.snack), notice: 'La réservation n\'a pas pu être refusée!'
     end
   end
 
