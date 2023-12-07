@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   patch '/bookings/:id/accept', to: "bookings#accept", as: "accept_booking"
   delete '/bookings/:id', to: "bookings#decline", as: "decline_booking"
 
+  get "/dashboard", to: "pages#dashboard"
 
   # Defines the root path route ("/")
   # root "posts#index"
