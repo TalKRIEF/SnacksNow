@@ -45,9 +45,10 @@
                 <% if booking.booked == false %>
                   <div class="booking-card-show">
                     <li>
-                          <p class="booking-demand"><span class="booking-username"><%= booking.user.username %></span> vous a envoyé une demande de réservation</p>
-                          <p><i class="fa-solid fa-check"></i> <%= link_to "Accepter", accept_booking_path(booking), data: {turbo_method: :patch}, class: "booking-show" %></p>
-                          <p><i class="fa-solid fa-xmark"></i> <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir refuser?"}, class: "booking-show-refuse" %></p>
+                        <p class="booking-demand"><span class="booking-username"><%= booking.user.username %></span> vous a envoyé une demande de réservation</p>
+                        <p>pour le <%= booking.date %></p>
+                        <p><i class="fa-solid fa-check"></i> <%= link_to "Accepter", accept_booking_path(booking), data: {turbo_method: :patch}, class: "booking-show" %></p>
+                        <p><i class="fa-solid fa-xmark"></i> <%= link_to "Refuser", decline_booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir refuser?"}, class: "booking-show-refuse" %></p>
                     </li>
                   </div>
                 <% end %>
@@ -61,7 +62,7 @@
               <% @snack.bookings.each do |booking| %>
                 <% if booking.booked%>
                   <li>
-                        <%= booking.user.username %>
+                      <%= booking.user.username %> - <%= booking.date %>
                   </li>
                 <% end %>
             <% end %>
@@ -74,14 +75,16 @@
       <%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
       <% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
         <div data-controller="toggle-booking">
-          <div data-action="click->toggle-booking#fire">
-            <%= link_to "Réservez un snack" %>
+          <div class="link-snacks" data-action="click->toggle-booking#fire">
+            <%= link_to "Réservez un snack"%>
           </div>
           <%# <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
           <div data-toggle-booking-target="togglableElement" class="d-none">
             <%= render "form_booking", snack: @snack, booking: @booking %>
           </div>
         </div>
+      <% else %>
+            <p>Votre réservation est en cours d'observation par le créateur de  l'annonce.</p>
       <% end %>
     <% end %>
   <% end %>
