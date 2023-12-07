@@ -1,7 +1,7 @@
 <div class="dashb-wrapper">
 
-  <h1>Dashboard</h1>
-  <p>Hey <strong><%= current_user.username %></strong>, envie d'un snack🍫?</p>
+  <h1 class="dashboard-title">Dashboard</h1>
+  <p class="dashboard-synopsis">Hey <strong><%= current_user.username %></strong>, envie d'un snack🍫?</p>
   <h5 class="dashb-title-snacks">Tes snacks</h5>
   <div class="dashb-snacks">
       <% current_user.snacks.each do |snack| %>
