@@ -24,6 +24,11 @@
         <p>Snack created by <%= @snack.user.username %></p>
       </div>
     </div>
+    <div style="width: 80%; height: auto" class="map-container"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
   </div>
 
   <div class="container-actions">

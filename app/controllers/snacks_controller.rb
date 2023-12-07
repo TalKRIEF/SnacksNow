@@ -18,6 +18,12 @@ before_action :set_snack, only: [:show, :edit, :update, :destroy]
 
   def show
     @booking = Booking.new
+    @markers =
+      [{
+        lat: @snack.latitude,
+        lng: @snack.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { snack: @snack })
+      }]
   end
 
   def new
