@@ -98,4 +98,10 @@
     <% end %>
   <% end %>
    </div>
+    <ul>
+  <% @snack.reviews.each do |review| %>
+        <p><%= review.rating %>/5</p>
+        <p><%= review.user.username %> : <%= review.content %></p>
+  <% end %>
+    </ul>
 </div>
