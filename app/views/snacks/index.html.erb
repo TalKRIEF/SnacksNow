@@ -5,9 +5,11 @@
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control w-50",
-                placeholder: "Mots-clés"
+                placeholder: "𝘔𝘰𝘵𝘴-𝘤𝘭é𝘴"
             %>
-          <%= submit_tag "Miam", name: "", class: "button-searchbar" %>
+            <%= button_tag(type: "submit", class: "button-searchbar") do %>
+              Miam <i class="fa-solid fa-cookie-bite"></i>
+            <% end %>
         <% end %>
       </div>
   </div>
