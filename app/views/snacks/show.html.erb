@@ -16,12 +16,12 @@
       </div>
 
       <div class="description-div">
-        <p><%= @snack.description %></p>
+        <p class="snack-description-card"><%= @snack.description %></p>
       </div>
 
       <div class="price-div">
-        <p><u><%= @snack.price %>€</u></p>
-        <p><i>Snack created by <%= @snack.user.username %></i></p>
+        <p class="price-card"><%= @snack.price %>€</p>
+        <p><i><span class="created-snack">Ce snack a été créé par <%= @snack.user.username %></span></i></p>
       </div>
     </div>
     <div style="width: 80%; height: auto" class="map-container"
@@ -81,7 +81,7 @@
       <% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
         <div data-controller="toggle-booking">
           <div class="link-snacks" data-action="click->toggle-booking#fire">
-            <%= link_to "Réservez un snack"%>
+            <%= link_to "Réservez un snack", class: "snack-reservation"%>
           </div>
           <%# <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
           <div data-toggle-booking-target="togglableElement" class="d-none">
@@ -90,9 +90,9 @@
         </div>
       <% else %>
       <% if Booking.where(user_id:current_user.id, snack_id:@snack.id)[0].booked %>
-            <p>Votre réservation a été validée !</p>
+            <p class="resa-validee">Votre réservation a été <span class="green-resa">validée</span> ! Profitez-bien de votre snack aujourd'hui !</p>
             <% else %>
-            <p>Votre réservation est en cours d'observation par le créateur de  l'annonce.</p>
+            <p class="resa-pending">Votre demande de réservation est en <span class="cours-de-traitement">cours de traitement</span>, revenez plus tard !</p>
             <% end %>
       <% end %>
     <% end %>

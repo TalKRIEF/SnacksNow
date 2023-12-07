@@ -143,7 +143,37 @@
 .link-snacks {
   justify-content: space-around;
   display: flex;
+  transition: transform 400ms ease-in-out;
     a{
       font-size: 34px;
     }
+    a:hover{
+      transform: scale(1.2);
+      color: rgb(94, 134, 52);
+    }
+}
+
+.resa-validee {
+  font-size: 40px;
+}
+
+.green-resa {
+  color: rgb(27, 129, 27);
+}
+
+.resa-pending {
+  font-size: 40px;
+}
+
+.cours-de-traitement {
+  color: rgb(204, 109, 31);
+}
+
+.price-card {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.snack-description-card {
+  font-size: 24px;
 }
