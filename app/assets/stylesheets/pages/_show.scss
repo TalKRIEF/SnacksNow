@@ -15,10 +15,13 @@
 
 .image-div {
   height: 100%;
+
   .cl-show-image {
+    object-fit: cover;
     margin: 2em;
     border-radius: 6px;
     width: 300px;
+    height: 350px;
   }
 }
 

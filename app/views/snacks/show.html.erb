@@ -20,8 +20,8 @@
       </div>
 
       <div class="price-div">
-        <p><%= @snack.price %>€</p>
-        <p>Snack created by <%= @snack.user.username %></p>
+        <p><u><%= @snack.price %>€</u></p>
+        <p><i>Snack created by <%= @snack.user.username %></i></p>
       </div>
     </div>
     <div style="width: 80%; height: auto" class="map-container"
@@ -89,7 +89,11 @@
           </div>
         </div>
       <% else %>
+      <% if Booking.where(user_id:current_user.id, snack_id:@snack.id)[0].booked %>
+            <p>Votre réservation a été validée !</p>
+            <% else %>
             <p>Votre réservation est en cours d'observation par le créateur de  l'annonce.</p>
+            <% end %>
       <% end %>
     <% end %>
   <% end %>

@@ -14,7 +14,8 @@ before_action :set_snack, only: [:show, :edit, :update, :destroy]
       [{
         lat: @snack.latitude,
         lng: @snack.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { snack: @snack })
+        info_window_html: render_to_string(partial: "info_window", locals: { snack: @snack }),
+        marker_html: render_to_string(partial: "marker", locals: { snack: @snack })
       }]
   end
 
@@ -57,6 +58,6 @@ before_action :set_snack, only: [:show, :edit, :update, :destroy]
   end
 
   def snack_params
-    params.require(:snack).permit(:name, :description, :price, :photo)
+    params.require(:snack).permit(:name, :description, :price, :photo, :address)
   end
 end
