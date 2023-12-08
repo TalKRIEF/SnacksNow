@@ -1,8 +1,15 @@
-<h1>Modifier <%= @snack.name %></h1>
-<%= simple_form_for @snack  do |f|%>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :price %>
-  <%= f.submit %>
-<% end %>
+<div class="container d-flex align-items-center justify-content-center ">
+    <div class="row w-25">
+        <h1 class="text-center fs-3">Modifier <%= @snack.name %></h1>
+          <div class="form">
+              <%= simple_form_for @snack  do |f|%>
+                <%= f.input :name %>
+                <%= f.input :description %>
+                <%= f.input :address %>
+                <%= f.input :price %>
+          </div>
+          <%= f.button :submit, "Update Snack", class: "update" %>
+        <% end %>
+
+    </div>
+</div>
