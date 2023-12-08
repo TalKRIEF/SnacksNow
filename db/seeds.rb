@@ -23,12 +23,14 @@ puts "Create tal user"
 tal = User.create!(username: "tal", email:"tal@gmail.com", password: "azerty")
 puts "Create nina user"
 nina = User.create!(username: "nina", email:"nina@gmail.com", password: "azerty")
-puts "Create some snacks:"
+puts "Create haingo user"
+haingo = User.create!(username: "haingo", email:"haingo@gmail.com", password: "azerty")
+puts "Create heba user"
 heba = User.create!(username: "heba", email: "heba@gmail.com", password: "azerty")
 puts "Create some snacks:"
 
 puts "Sucreries de Haingo"
-snack1 = Snack.new(name: "Sucreries de Haingo", description: "Une bonne dose de sucre pour éviter l'hypoglycémie! Proposée avec un grand sourire! C'est presque gratuit!", address: "21 Rue Haxo, Marseille", price: 2.99, user_id: diego.id)
+snack1 = Snack.new(name: "Sucreries de Haingo", description: "Une bonne dose de sucre pour éviter l'hypoglycémie! Proposée avec un grand sourire! C'est presque gratuit!", address: "21 Rue Haxo, Marseille", price: 2.99, user_id: haingo.id)
 snack1_photo = URI.open("https://www.generation-souvenirs.com/27476-product_large/chamallows-haribo.jpg")
 snack1.photo.attach(io: snack1_photo, filename: "bonbons.jpg", content_type: "image/jpg")
 snack1.save!
@@ -70,7 +72,7 @@ snack6.save!
 puts "done!"
 
 puts "Les biscuits Petit-Déjeuner de Benjamin"
-snack7 = Snack.new(name: "Les biscuits Petit-Déjeuner de Benjamin", description: "Une médaille d'or pour ce biscuit et sa perfomance sonore exceptionnelle lors des leçons du matin!", address: "Périer", price: 9.99, user_id: heba.id)
+snack7 = Snack.new(name: "Les biscuits Petit-Déjeuner de Benjamin", description: "Une médaille d'or pour ce biscuit et sa performance sonore exceptionnelle lors des leçons du matin!", address: "Périer", price: 9.99, user_id: heba.id)
 snack7_photo = URI.open("https://media.paperblog.fr/i/723/7235524/belvita-petit-dejeuner-lu-biscuits-petit-deje-T-_Irg8X.jpeg")
 snack7.photo.attach(io: snack7_photo, filename: "biscuits.jpeg", content_type: "image/jpeg")
 snack7.save!
@@ -88,5 +90,11 @@ Booking.create(user_id: diego.id, snack_id: snack4.id, booked: false, date: Date
 puts "tal => La pizza de Heba"
 Booking.create(user_id: tal.id, snack_id: snack6.id, booked: false, date: Date.today)
 puts "done!"
+
+
+puts "----------------- Review creation ------------------"
+Review.create(user_id: tal.id, snack_id: snack7.id, content: "Ils sont très croustillants et très bruyants quand ce n'est pas moi qui les mange, mais pour en avoir piqués 1 ou 2 en cachette, je confirme qu'ils sont délicieux !", rating: 5)
+Review.create(user_id: diego.id, snack_id: snack1.id, content: "Merci pour la douce attention, mais y'avait un cafard dans le Twix...", rating: 1)
+Review.create(user_id: heba.id, snack_id: snack6.id, content: "Je sais qu'on a pas le droit de faire ça mais c'était tellement une bonne pizza que j'étais obligée de contourner le système et de me laisser ma propre note...", rating: 5)
 
 puts "Finished"

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :snacks do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:new, :create]
   end
 
   patch '/bookings/:id/accept', to: "bookings#accept", as: "accept_booking"

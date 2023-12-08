@@ -1,3 +1,4 @@
+<% if current_user == @snack.user %>
 <div class="container d-flex align-items-center justify-content-center ">
     <div class="row w-25">
         <h1 class="text-center fs-3">Modifier <%= @snack.name %></h1>
@@ -13,3 +14,6 @@
 
     </div>
 </div>
+<% else %>
+  <p>Vous ne pouvez pas modifier ce snack!</p>
+<% end %>

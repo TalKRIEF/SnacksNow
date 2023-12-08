@@ -1,0 +1,17 @@
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="justify-content-center">
+
+    <% if current_user != @snack.user %>
+      <h1 class="h1hh">Ajouter votre avis pour <span class="title-review"><%= @snack.name %></span></h1>
+      <div class="descrip">
+        <%= simple_form_for [@snack, @review]  do |f|%>
+          <%= f.input :content %>
+          <%= f.input :rating %>
+          <%= f.button :submit, value: "Ajouter", class:"create" %>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="hh not-allowed-plz">Vous ne pouvez pas laisser d'avis sur vos propres snacks!</p>
+    <% end %>
+  </div>
+</div>
