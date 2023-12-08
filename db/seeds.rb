@@ -24,6 +24,10 @@ tal = User.create!(username: "tal", email:"tal@gmail.com", password: "azerty")
 puts "Create nina user"
 nina = User.create!(username: "nina", email:"nina@gmail.com", password: "azerty")
 puts "Create some snacks:"
+benjamin = User.create!(username: "benjamin", email:"benjamin@gmail.com", password: "azerty")
+puts "Create some snacks:"
+heba = User.create!(username: "heba", email:"heba@gmail.com", password: "azerty")
+puts "Create some snacks:"
 
 puts "Sucreries de Haingo"
 snack1 = Snack.new(name: "Sucreries de Haingo", description: "Une bonne dose de sucre pour éviter l'hypoglycémie! Proposée avec un grand sourire! C'est presque gratuit!", address: "21 Rue Haxo, Marseille", price: 2.99, user_id: diego.id)
@@ -59,6 +63,21 @@ snack5_photo = URI.open("https://i0.wp.com/parismamanetmoi.com/wp-content/upload
 snack5.photo.attach(io: snack5_photo, filename: "pompote.jpg", content_type: "image/jpg")
 snack5.save!
 puts "done!"
+
+puts "Cookies de Benjamin"
+snack6 = Snack.new(name: "Cookies de Benjamin", description: "***les Cookies*** la fin de ces délices sucrés  pourquoi,  comment et quel monde après ?!!", address: "146 rue paradis, Marseille", price: 4.99, user_id: benjamin.id)
+snack6_photo = URI.open("https://dynamic-seniors.eu/wp-content/uploads/2021/04/COOKIES-DELACRE-7.jpg")
+snack6.photo.attach(io: snack6_photo, filename: "biscuits.jpg", content_type: "image/jpg")
+snack6.save!
+puts "done!"
+
+puts "Snickers de Heba"
+snack7 = Snack.new(name: "Snickers de Heba", description: "Vraiment délicieux 😋 😋 😋 maiiiis très sucré et très gras", address: "3  rue Traverse Force, Marseille", price: 1.78, user_id: heba.id)
+snack7_photo = URI.open("https://m.media-amazon.com/images/I/41afsDr54TL._SL500_.jpg")
+snack7.photo.attach(io: snack7_photo, filename: "chocolats.jpg", content_type: "image/jpg")
+snack7.save!
+puts "done!"
+
 
 puts "Create some bookings:"
 puts "diego => La pomme d'Anthonny"
