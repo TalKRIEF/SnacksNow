@@ -1,8 +1,12 @@
-<h1>Modifier <%= @snack.name %></h1>
-<%= simple_form_for @snack  do |f|%>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :price %>
-  <%= f.submit %>
+<% if current_user == @snack.user %>
+  <h1>Modifier <%= @snack.name %></h1>
+  <%= simple_form_for @snack  do |f|%>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.input :price %>
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  <p>Vous ne pouvez pas modifier ce snack!</p>
 <% end %>
