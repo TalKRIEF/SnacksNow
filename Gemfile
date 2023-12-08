@@ -55,6 +55,7 @@ gem "sassc-rails"
 gem "cloudinary"
 
 gem "pg_search"
+# gem 'jquery-rails'
 
 group :development, :test do
   gem "dotenv-rails"
