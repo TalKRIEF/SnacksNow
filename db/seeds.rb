@@ -72,7 +72,7 @@ snack6.save!
 puts "done!"
 
 puts "Snickers de Heba"
-snack7 = Snack.new(name: "Snickers de Heba", description: "Vraiment délicieux 😋 😋 😋 maiiiis très sucré et très gras", address: "3  rue Traverse Force, Marseille", price: 1.78, user_id: heba.id)
+snack7 = Snack.new(name: "Snickers de Heba", description: "Waouh!!! c'est de la bombe cette barre de chocolat 🥰🥰🥰Vraiment délicieux 😋 😋 😋", address: "3  rue Traverse Force, Marseille", price: 1.78, user_id: heba.id)
 snack7_photo = URI.open("https://m.media-amazon.com/images/I/41afsDr54TL._SL500_.jpg")
 snack7.photo.attach(io: snack7_photo, filename: "chocolats.jpg", content_type: "image/jpg")
 snack7.save!
