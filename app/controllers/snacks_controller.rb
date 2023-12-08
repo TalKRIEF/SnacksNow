@@ -2,8 +2,6 @@ class SnacksController < ApplicationController
 skip_before_action :authenticate_user!, only: [ :index, :show ]
 before_action :set_snack, only: [:show, :edit, :update, :destroy]
 
-
-
   def index
     @snacks = Snack.all
     if params[:query].present?
