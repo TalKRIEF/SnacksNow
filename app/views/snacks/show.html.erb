@@ -80,31 +80,53 @@
     <% else %>
       <%# Si on a pas déjà utilisé le user_id et le snack_id, on affiche le lien %>
       <% if Booking.where(user_id:current_user.id, snack_id:@snack.id).empty? %>
-        <div data-controller="toggle-booking">
+        <div data-controller="toggle-booking" class="links-space-container">
+          <div class="review-container">
+
           <div class="link-snacks" data-action="click->toggle-booking#fire">
             <%= link_to "Réservez un snack", class: "snack-reservation"%>
+
           </div>
           <%# <%= link_to "Réservez un snack", snack_bookings_path(@snack), data: {turbo_method: :post} %>
           <div data-toggle-booking-target="togglableElement" class="d-none">
             <%= render "form_booking", snack: @snack, booking: @booking %>
           </div>
         </div>
+          <div class="link-snacks">
+              <%= link_to "Laissez un avis", new_snack_review_path(@snack)%>
+          </div>
+        </div>
+
       <% else %>
       <% if Booking.where(user_id:current_user.id, snack_id:@snack.id)[0].booked %>
-            <p class="resa-validee">Votre réservation a été <span class="green-resa">validée</span> ! Profitez-bien de votre snack aujourd'hui !</p>
-            <% else %>
-            <p class="resa-pending">Votre demande de réservation est en <span class="cours-de-traitement">cours de traitement</span>, revenez plus tard !</p>
-            <% end %>
+        <p class="resa-validee">Votre réservation a été <span class="green-resa">validée</span> ! Profitez-bien de votre snack aujourd'hui !</p>
+      <% else %>
+        <p class="resa-pending">Votre demande de réservation est en <span class="cours-de-traitement">cours de traitement</span>, revenez plus tard !</p>
+      <% end %>
+        <div class="link-snacks">
+          <div class="leave-review">
+          <%= link_to "Laissez un avis", new_snack_review_path(@snack), class: "review-button"%>
+          </div>
+        </div>
       <% end %>
     <% end %>
   <% end %>
+
+
    </div>
+
+<% if @snack.reviews.any? %>
+    <h5 class="avis-review">Avis</h5>
     <ul>
       <% @snack.reviews.each do |review| %>
         <div class="review-div">
-          <p><%= review.rating %>/5 <i class="fa-solid fa-cookie-bite"></i></p>
+          <% review.rating.times do %>
+            <i class="fa-solid fa-cookie-bite"></i>
+          <% end %>
           <p><strong><%= review.user.username %></strong>: <%= review.content %></p>
         </div>
       <% end %>
     </ul>
+    <% end %>
+
 </div>
