@@ -13,6 +13,7 @@
     <div class="show-content">
       <div class="title-div">
         <h1><%= @snack.name %></h1>
+        <p> - <%= @snack.rating %> <i class="fa-solid fa-cookie-bite"></i></p>
       </div>
 
       <div class="description-div">
@@ -28,7 +29,7 @@
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+    </div>
   </div>
 
   <div class="container-actions">
@@ -62,7 +63,7 @@
           </div>
 
           <div class="accepted-booking">
-         <u><h5 class="title-show">Réservations acceptées  <i class="fa-solid fa-check"></i></h5></u>
+         <u><h5 class="title-show">Réservation(s) acceptées  <i class="fa-solid fa-check"></i></h5></u>
             <ul>
               <% @snack.bookings.each do |booking| %>
                 <% if booking.booked%>
@@ -98,4 +99,12 @@
     <% end %>
   <% end %>
    </div>
+    <ul>
+      <% @snack.reviews.each do |review| %>
+        <div class="review-div">
+          <p><%= review.rating %>/5 <i class="fa-solid fa-cookie-bite"></i></p>
+          <p><strong><%= review.user.username %></strong>: <%= review.content %></p>
+        </div>
+      <% end %>
+    </ul>
 </div>

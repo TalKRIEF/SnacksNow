@@ -1,0 +1,9 @@
+<% if current_user != @snack.user %>
+  <%= simple_form_for [@snack, @review]  do |f|%>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+    <%= f.button :submit, value: "Ajouter", class:"create" %>
+  <% end %>
+<% else %>
+  <p>Vous ne pouvez pas laisser d'avis sur vos propres snacks!</p>
+<% end %>
